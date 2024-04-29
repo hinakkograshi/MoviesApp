@@ -15,19 +15,9 @@ struct MovieListView: View {
 
     var body: some View {
         List(self.movies, id: \.imdbId) { movie in
-            HStack(alignment: .top) {
-                URLImage(url: movie.poster)
-                    .frame(width: 100, height: 120)
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
-                VStack(alignment: .leading) {
-                    Text(movie.title)
-                        .font(.headline)
-                    Text(movie.year)
-                        .opacity(0.5)
-                        .padding(.top, 10)
-                }.padding(5)
-                Spacer()
-            }.contentShape(Rectangle())
+            NavigationLink(destination: MovieDetailScreen(imdbId: movie.imdbId)) {
+                MovieCell(movie: movie)
+            }
         }
     }
 }
