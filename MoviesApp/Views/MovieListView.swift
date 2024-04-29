@@ -11,7 +11,7 @@ import SwiftUI
 struct MovieListView: View {
     //映画を映画リストビューに渡す必要があります。
 //moviesは moviesと同じで、ムービービューモデルの種類になります。
-    let movies: [MovieViewModel]
+    let movies: [Movie]
 
     var body: some View {
         List(self.movies, id: \.imdbId) { movie in
